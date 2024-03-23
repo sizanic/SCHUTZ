@@ -31,19 +31,20 @@ class MainActivity : AppCompatActivity() {
         // https://stackoverflow.com/questions/59275009/fragmentcontainerview-using-findnavcontroller/59275182#59275182
 
         val navView: BottomNavigationView = binding.navView
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
 
         val navHome = view.findViewById<Button>(R.id.button_home)
-        navHome.setOnClickListener {
-            navController.navigate(R.id.navigation_home)
-        }
+        navHome.setOnClickListener { navController.navigate(R.id.navigation_home) }
 
         val navAdd = view.findViewById<Button>(R.id.button_add)
-        navAdd.setOnClickListener {
-            navController.navigate(R.id.navigation_add)
-        }
+        navAdd.setOnClickListener { navController.navigate(R.id.navigation_add) }
+
+        val navRemove = view.findViewById<Button>(R.id.button_remove)
+        navRemove.setOnClickListener { navController.navigate(R.id.navigation_remove) }
+
+        val navSearch = view.findViewById<Button>(R.id.button_search)
+        navSearch.setOnClickListener { navController.navigate(R.id.navigation_search) }
 
 
         navView.setupWithNavController(navController)
