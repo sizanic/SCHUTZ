@@ -4,8 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.schutz.stock.R
+import com.schutz.stock.data.entity.Allee
 import com.schutz.stock.databinding.FragmentHomeBinding
+import com.schutz.stock.service.DatabaseClient
+import kotlin.concurrent.thread
 
 class HomeFragment : Fragment() {
 
@@ -20,23 +25,37 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        /*        val homeViewModel =
-                        ViewModelProvider(this).get(HomeViewModel::class.java)
-        */
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        /*
-                val textView: TextView = binding.textHome
-                homeViewModel.text.observe(viewLifecycleOwner) {
-                    textView.text = it
-                }
-        */
-        return root
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view: View = binding.root
+
+/*
+        val nbA = view.findViewById<TextView>(R.id.editA)
+        nbA.text = "56"
+*/
+
+        thread(start = true) {
+            initValues()
+        }
+
+        return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun initValues() {
+
+        val alleeId = "A"
+        val emplacementId = 1
+        val nbRef = DatabaseClient.getInstance().getNbReference(alleeId, emplacementId)
+
+        val nbA = view?.findViewById<TextView>(R.id.editA)
+        nbA?.text = "123"
+
+    }
+
+
 }

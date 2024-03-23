@@ -10,7 +10,7 @@ import com.schutz.stock.data.entity.Emplacement
 @Dao
 interface EmplacementDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertEmplacement(emplacement: Emplacement)
 
     @Query("SELECT * FROM emplacement where id = :id and alleeId = :alleeId limit 1")

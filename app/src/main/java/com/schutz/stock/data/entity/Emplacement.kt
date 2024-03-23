@@ -6,6 +6,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
+    primaryKeys = ["alleeId", "id"],
     foreignKeys = [
         ForeignKey(
             entity = Allee::class,
@@ -16,6 +17,6 @@ import androidx.room.PrimaryKey
     indices = [Index(value = ["id", "alleeId"], unique = true)]
 )
 data class Emplacement(
-    @PrimaryKey val id: Int,
-    val alleeId: String
+    val alleeId: String,
+    val id: Int
 )

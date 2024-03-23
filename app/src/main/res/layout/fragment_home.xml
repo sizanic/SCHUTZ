@@ -146,4 +146,113 @@
         app:layout_constraintStart_toEndOf="@+id/textF"
         app:layout_constraintTop_toBottomOf="@+id/textH" />
 
+    <EditText
+        android:id="@+id/editA"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textA"
+        app:layout_constraintTop_toTopOf="@+id/textA" />
+
+    <EditText
+        android:id="@+id/editB"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textB"
+        app:layout_constraintTop_toTopOf="@+id/textB" />
+
+    <EditText
+        android:id="@+id/editC"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textC"
+        app:layout_constraintTop_toTopOf="@+id/textC" />
+
+    <EditText
+        android:id="@+id/editD"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textD"
+        app:layout_constraintTop_toTopOf="@+id/textD" />
+
+    <EditText
+        android:id="@+id/editE"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textE"
+        app:layout_constraintTop_toTopOf="@+id/textE" />
+
+    <EditText
+        android:id="@+id/editF"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textF"
+        app:layout_constraintTop_toTopOf="@+id/textF" />
+
+
+    <EditText
+        android:id="@+id/editG"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textG"
+        app:layout_constraintTop_toTopOf="@+id/textG" />
+
+    <EditText
+        android:id="@+id/editH"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/82"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textH"
+        app:layout_constraintTop_toTopOf="@+id/textH" />
+
+    <EditText
+        android:id="@+id/editI"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="-/56"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toEndOf="@+id/textI"
+        app:layout_constraintTop_toTopOf="@+id/textI" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

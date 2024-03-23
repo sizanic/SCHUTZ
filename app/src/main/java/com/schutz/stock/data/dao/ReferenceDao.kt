@@ -19,4 +19,7 @@ interface ReferenceDao {
 
     @Query("SELECT * FROM reference")
     fun getAllReferences(): List<Reference>
+
+    @Query("SELECT * FROM reference where emplacementId = :emplacementId and alleeId = :alleeId")
+    fun getNbReference(alleeId: String, emplacementId: Int): Int
 }

@@ -6,6 +6,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
+    primaryKeys = ["alleeId", "emplacementId","id"],
     foreignKeys = [
         ForeignKey(
             entity = Allee::class,
@@ -15,14 +16,14 @@ import androidx.room.PrimaryKey
         ),
         ForeignKey(
             entity = Emplacement::class,
-            parentColumns = ["id"],
-            childColumns = ["emplacementId"],
+            parentColumns = ["alleeId", "id"],
+            childColumns = ["alleeId", "emplacementId"],
             onDelete = ForeignKey.CASCADE
         )],
     indices = [Index(value = ["id", "alleeId", "emplacementId"], unique = true)]
 )
 data class Reference(
-    @PrimaryKey val id: String,
     val alleeId: String,
-    val emplacementId: Int
+    val emplacementId: Int,
+    val id: String
 )
