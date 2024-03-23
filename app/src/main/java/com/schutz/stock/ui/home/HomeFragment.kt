@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.stockschutz.databinding.FragmentHomeBinding
+import com.schutz.stock.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 

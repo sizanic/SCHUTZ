@@ -7,8 +7,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.stockschutz.R
-import com.example.stockschutz.databinding.ActivityMainBinding
+import com.schutz.stock.R
+import com.schutz.stock.databinding.ActivityMainBinding
 import com.schutz.stock.service.DatabaseClient
 
 class MainActivity : AppCompatActivity() {

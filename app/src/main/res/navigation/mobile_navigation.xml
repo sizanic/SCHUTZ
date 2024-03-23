@@ -13,6 +13,12 @@
         <action
             android:id="@+id/navigation_home_to_add"
             app:destination="@id/navigation_add" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_remove"
+            app:destination="@id/navigation_remove" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_search"
+            app:destination="@id/navigation_search" />
     </fragment>
 
     <fragment
@@ -22,10 +28,18 @@
         tools:layout="@layout/fragment_add" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.schutz.stock.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_remove"
+        android:name="com.schutz.stock.ui.home.RemoveFragment"
+        android:label="Remove"
+        tools:layout="@layout/fragment_add" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.schutz.stock.ui.home.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+
+
 
     <fragment
         android:id="@+id/navigation_notifications"

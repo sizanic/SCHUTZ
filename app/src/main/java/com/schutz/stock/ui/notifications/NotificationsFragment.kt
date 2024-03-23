@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.stockschutz.databinding.FragmentNotificationsBinding
+import com.schutz.stock.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 

@@ -1,14 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.devtoolsksp)
 }
 
 android {
-    namespace = "com.example.stockschutz"
+    namespace = "com.schutz.stock"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.stockschutz"
+        applicationId = "com.schutz.stock"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -57,5 +58,5 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)//KTX Extensions/Coroutines for Room
-
+    ksp(libs.androidx.room.compiler)
 }
