@@ -3,10 +3,9 @@ package com.schutz.stock.data.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
-import androidx.room.PrimaryKey
 
 @Entity(
-    primaryKeys = ["alleeId", "emplacementId","id"],
+    primaryKeys = ["alleeId", "emplacementId","id","date"],
     foreignKeys = [
         ForeignKey(
             entity = Allee::class,
@@ -20,10 +19,11 @@ import androidx.room.PrimaryKey
             childColumns = ["alleeId", "emplacementId"],
             onDelete = ForeignKey.CASCADE
         )],
-    indices = [Index(value = ["id", "alleeId", "emplacementId"], unique = true)]
+    indices = [Index(value = ["id", "alleeId", "emplacementId", "date"], unique = true)]
 )
 data class Reference(
     val alleeId: String,
     val emplacementId: Int,
-    val id: String
+    val id: String,
+    val date: Long
 )

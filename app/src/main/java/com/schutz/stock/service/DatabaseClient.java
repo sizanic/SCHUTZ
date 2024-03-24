@@ -10,6 +10,8 @@ import com.schutz.stock.data.entity.Allee;
 import com.schutz.stock.data.entity.Emplacement;
 import com.schutz.stock.data.entity.Reference;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class DatabaseClient {
 
         //creating the app database with Room database builder
         //MyToDos is the name of the database
-        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "stock1").build();
+        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "stock2").allowMainThreadQueries().build();
 
         appDatabase.getOpenHelper().getWritableDatabase(); //<<<<< FORCE OPEN
 
@@ -87,14 +89,19 @@ public class DatabaseClient {
     }
 
 
-    public Reference addReference(String alleeId, int emplID, String referenceID) {
-        Reference reference = new Reference(alleeId, emplID, referenceID);
+    public Reference addReference(@NotNull String alleeId, int emplID, @NotNull String referenceID, long time) {
+        Reference reference = new Reference(alleeId, emplID, referenceID, time);
         appDatabase.referenceDao().insertReference(reference);
         return reference;
     }
 
-    public Integer getNbReference(String alleeId, int emplID) {
+    public Integer getNbReference(@NotNull String alleeId, @NotNull int emplID) {
         return appDatabase.referenceDao().getNbReference(alleeId, emplID);
+    }
+
+    @NotNull
+    public List<Emplacement> getEmplacementsFromAllee(@NotNull String alleeId) {
+        return appDatabase.emplacementDao().getEmplacementsFromAllee(alleeId);
     }
 
 

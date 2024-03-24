@@ -38,9 +38,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        thread(start = true) {
-            initValues()
-        }
+        initValues()
     }
 
     override fun onDestroyView() {
@@ -49,14 +47,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun initValues() {
+        thread(start = true) {
+            val alleeId = "A"
+            val emplacementId = 1
+            val nbRef = DatabaseClient.getInstance().getNbReference(alleeId, emplacementId)
 
-        val alleeId = "A"
-        val emplacementId = 1
-        val nbRef = DatabaseClient.getInstance().getNbReference(alleeId, emplacementId)
-
-        val nbA = view?.findViewById<TextView>(R.id.editA)
-        nbA?.text = "123"
-
+            val nbA = view?.findViewById<TextView>(R.id.editA)
+            nbA?.text = "123"
+        }
     }
 
 

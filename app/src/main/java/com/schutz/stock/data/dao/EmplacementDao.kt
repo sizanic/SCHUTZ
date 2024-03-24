@@ -16,6 +16,6 @@ interface EmplacementDao {
     @Query("SELECT * FROM emplacement where id = :id and alleeId = :alleeId limit 1")
     fun getEmplacement(alleeId: String, id: Int): Emplacement
 
-    @Query("SELECT * FROM emplacement")
-    fun getAllEmplacements(): List<Emplacement>
+    @Query("SELECT * FROM emplacement where alleeId = :alleeId")
+    fun getEmplacementsFromAllee(alleeId: String): List<Emplacement>
 }
