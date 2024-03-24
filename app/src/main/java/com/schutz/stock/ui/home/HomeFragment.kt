@@ -33,12 +33,14 @@ class HomeFragment : Fragment() {
         val nbA = view.findViewById<TextView>(R.id.editA)
         nbA.text = "56"
 */
+      return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         thread(start = true) {
             initValues()
         }
-
-        return view
     }
 
     override fun onDestroyView() {
@@ -46,7 +48,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    fun initValues() {
+    private fun initValues() {
 
         val alleeId = "A"
         val emplacementId = 1

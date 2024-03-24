@@ -82,6 +82,10 @@ public class DatabaseClient {
         return !allees.isEmpty() ? allees.get(0) : null;
     }
 */
+    public List<Allee> getAllees() {
+        return appDatabase.alleeDao().getAllAllees();
+    }
+
 
     public Reference addReference(String alleeId, int emplID, String referenceID) {
         Reference reference = new Reference(alleeId, emplID, referenceID);
