@@ -4,14 +4,12 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.schutz.stock.data.entity.Allee
-import com.schutz.stock.data.entity.Emplacement
 import com.schutz.stock.data.entity.Reference
 
 @Dao
 interface ReferenceDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     fun insertReference(reference: Reference)
 
     @Query("SELECT * FROM reference where id = :id and emplacementId = :emplacementId and alleeId = :alleeId limit 1")
@@ -19,6 +17,12 @@ interface ReferenceDao {
 
     @Query("SELECT * FROM reference")
     fun getAllReferences(): List<Reference>
+
+    @Query("SELECT count(*) FROM emplacement where alleeId = :alleeId")
+    fun getNbEmplacement(alleeId: String): Int
+
+    @Query("SELECT count(*) FROM reference where alleeId = :alleeId")
+    fun getNbReferenceFromAllee(alleeId: String): Int
 
     @Query("SELECT * FROM reference where emplacementId = :emplacementId and alleeId = :alleeId")
     fun getNbReference(alleeId: String, emplacementId: Int): Int

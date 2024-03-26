@@ -26,7 +26,7 @@ public class DatabaseClient {
 
         //creating the app database with Room database builder
         //MyToDos is the name of the database
-        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "stock2").allowMainThreadQueries().build();
+        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "stock3").allowMainThreadQueries().build();
 
         appDatabase.getOpenHelper().getWritableDatabase(); //<<<<< FORCE OPEN
 
@@ -91,17 +91,36 @@ public class DatabaseClient {
 
     public Reference addReference(@NotNull String alleeId, int emplID, @NotNull String referenceID, long time) {
         Reference reference = new Reference(alleeId, emplID, referenceID, time);
-        appDatabase.referenceDao().insertReference(reference);
+        try {
+            appDatabase.referenceDao().insertReference(reference);
+        } catch (Exception e) {
+            return null;
+        }
         return reference;
     }
 
-    public Integer getNbReference(@NotNull String alleeId, @NotNull int emplID) {
+    public Integer getNbEmplacement(@NotNull String alleeId) {
+        return appDatabase.referenceDao().getNbEmplacement(alleeId);
+    }
+
+    public Integer getNbReference(@NotNull String alleeId) {
+        return appDatabase.referenceDao().getNbReferenceFromAllee(alleeId);
+    }
+
+    public Integer getNbReference(@NotNull String alleeId, @NotNull Integer emplID) {
         return appDatabase.referenceDao().getNbReference(alleeId, emplID);
     }
 
     @NotNull
     public List<Emplacement> getEmplacementsFromAllee(@NotNull String alleeId) {
         return appDatabase.emplacementDao().getEmplacementsFromAllee(alleeId);
+    }
+
+    public List<Emplacement> getEmplacementsLibres(@NotNull String alleeId) {
+        List<Emplacement> valempls = appDatabase.emplacementDao().getEmplacementsFromAllee(alleeId);
+        List<Emplacement> valemplOccupes = appDatabase.emplacementDao().getEmplacementsOccupes(alleeId);
+        valempls.removeAll(valemplOccupes);
+        return valempls;
     }
 
 

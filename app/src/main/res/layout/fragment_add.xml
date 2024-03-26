@@ -5,21 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/textAllee"
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
-        android:hint="Date"
-        android:text="ALLÉE"
-        android:textAlignment="center"
+        android:gravity="center"
+        android:text="RAYONNAGE"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
     <TextView
         android:id="@+id/textEmplacement"
@@ -29,7 +28,7 @@
         android:layout_marginTop="12dp"
         android:background="#4472C4"
         android:text="EMPLACEMENT"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +39,10 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="#4472C4"
         android:text="RÉFÉRENCE"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +53,10 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="#4472C4"
         android:text="DATE"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,22 +96,22 @@
 
     <EditText
         android:id="@+id/editTextReference"
-        android:layout_width="wrap_content"
+        android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/textReference"
         app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacement" />
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
+        android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="date"
         android:inputType="date"
@@ -121,12 +120,12 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:background="#4472C4"
-        android:text="VALIDER"
+        android:layout_width="213dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="#4472C4"
+        android:textSize="20sp"
+        android:text="RANGER"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/editTextDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />

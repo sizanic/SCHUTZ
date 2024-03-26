@@ -45,7 +45,6 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
             addReference()
         })
 
-
         return view
     }
 
@@ -75,23 +74,14 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         val selectedItem = parent!!.getItemAtPosition(position).toString()
 
-        when (parent!!.id) {
+        when (parent.id) {
             R.id.spinnerAllee -> {
-/*
-                    Toast.makeText(
-                        parent!!.context, "Country you selected is $selectedItem",
-                        Toast.LENGTH_LONG
-                    ).show()
-*/
-
-                val emplacements = DatabaseClient.getInstance().getEmplacementsFromAllee(selectedItem)
-
+                val emplacements = DatabaseClient.getInstance().getEmplacementsLibres(selectedItem)
                 val values = ArrayList<Int>()
                 emplacements.forEach() {
                     values.add(it.id)
                 }
                 spinnerEmplacement?.adapter = ArrayAdapter<Int>(requireView().context, android.R.layout.simple_list_item_1, values)
-
             }
 
             R.id.spinnerEmplacement -> {

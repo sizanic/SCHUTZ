@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
-import com.schutz.stock.data.entity.Allee
 import com.schutz.stock.databinding.FragmentHomeBinding
 import com.schutz.stock.service.DatabaseClient
 import kotlin.concurrent.thread
@@ -47,14 +46,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun initValues() {
-        thread(start = true) {
-            val alleeId = "A"
-            val emplacementId = 1
-            val nbRef = DatabaseClient.getInstance().getNbReference(alleeId, emplacementId)
-
-            val nbA = view?.findViewById<TextView>(R.id.editA)
-            nbA?.text = "123"
-        }
+        //thread(start = true)
+            val allees = mapOf("A" to R.id.editA, "B" to R.id.editB , "C" to R.id.editC
+                , "D" to R.id.editD , "E" to R.id.editE , "F" to R.id.editF
+                , "G" to R.id.editG , "H" to R.id.editH , "I" to R.id.editI )
+            allees.forEach{
+                val nbEmpl = DatabaseClient.getInstance().getNbEmplacement(it.key)
+                val nbRef = DatabaseClient.getInstance().getNbReference(it.key)
+                val editText = view?.findViewById<TextView>(it.value)
+                editText?.text = "%d / %d".format(nbEmpl-nbRef, nbEmpl)
+            }
     }
 
 
