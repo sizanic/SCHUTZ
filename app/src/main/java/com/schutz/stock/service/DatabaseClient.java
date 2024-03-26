@@ -99,6 +99,25 @@ public class DatabaseClient {
         return reference;
     }
 
+    public Reference removeReference(@NotNull String alleeId, int emplID, @NotNull String referenceID, long time) {
+        Reference reference = new Reference(alleeId, emplID, referenceID, time);
+        try {
+            appDatabase.referenceDao().removeReference(reference);
+        } catch (Exception e) {
+            return null;
+        }
+        return reference;
+    }
+
+    public Boolean removeReference(@NotNull Reference reference) {
+        try {
+            appDatabase.referenceDao().removeReference(reference);
+        } catch (Exception e) {
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
+
     public Integer getNbEmplacement(@NotNull String alleeId) {
         return appDatabase.referenceDao().getNbEmplacement(alleeId);
     }
@@ -111,6 +130,10 @@ public class DatabaseClient {
         return appDatabase.referenceDao().getNbReference(alleeId, emplID);
     }
 
+    public Reference getReference(@NotNull String alleeId, @NotNull Integer emplID) {
+        return appDatabase.referenceDao().getReference(alleeId, emplID);
+    }
+
     @NotNull
     public List<Emplacement> getEmplacementsFromAllee(@NotNull String alleeId) {
         return appDatabase.emplacementDao().getEmplacementsFromAllee(alleeId);
@@ -121,6 +144,11 @@ public class DatabaseClient {
         List<Emplacement> valemplOccupes = appDatabase.emplacementDao().getEmplacementsOccupes(alleeId);
         valempls.removeAll(valemplOccupes);
         return valempls;
+    }
+
+    public List<Emplacement> getEmplacementsOccupes(@NotNull String alleeId) {
+        List<Emplacement> valemplOccupes = appDatabase.emplacementDao().getEmplacementsOccupes(alleeId);
+        return valemplOccupes;
     }
 
 

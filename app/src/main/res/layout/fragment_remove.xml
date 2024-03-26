@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnRemove"
         android:layout_width="213dp"
         android:layout_height="54dp"
         android:layout_marginStart="343dp"
@@ -15,7 +15,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReference" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextReferenceDel" />
 
     <TextView
         android:id="@+id/textReference"
@@ -32,17 +32,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textEmplacement" />
 
     <TextView
-        android:id="@+id/editTextReference"
+        android:id="@+id/editTextReferenceDel"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
-        android:ems="10"
         android:text="- - -"
         android:textSize="24sp"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@+id/textReference"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacement" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacementDel" />
 
     <TextView
         android:id="@+id/textAllee"
@@ -59,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
     <Spinner
-        android:id="@+id/spinnerAllee"
+        android:id="@+id/spinnerAlleeDel"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
@@ -82,13 +81,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textAllee" />
 
     <Spinner
-        android:id="@+id/spinnerEmplacement"
+        android:id="@+id/spinnerEmplacementDel"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/textEmplacement"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAllee" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAlleeDel" />
 
     <TextView
         android:id="@+id/text_home"

@@ -1,6 +1,7 @@
 package com.schutz.stock.data.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,8 +13,11 @@ interface ReferenceDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     fun insertReference(reference: Reference)
 
-    @Query("SELECT * FROM reference where id = :id and emplacementId = :emplacementId and alleeId = :alleeId limit 1")
-    fun getReference(alleeId: String, emplacementId: Int, id: String): Reference
+    @Delete
+    fun removeReference(reference: Reference)
+
+    @Query("SELECT * FROM reference where alleeId = :alleeId  and emplacementId = :emplacementId limit 1")
+    fun getReference(alleeId: String, emplacementId: Int): Reference
 
     @Query("SELECT * FROM reference")
     fun getAllReferences(): List<Reference>
