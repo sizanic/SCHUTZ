@@ -118,6 +118,14 @@ public class DatabaseClient {
         return Boolean.TRUE;
     }
 
+    public Reference searchReference(@NotNull String refID) {
+        try {
+            return appDatabase.referenceDao().searchReference(refID);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public Integer getNbEmplacement(@NotNull String alleeId) {
         return appDatabase.referenceDao().getNbEmplacement(alleeId);
     }

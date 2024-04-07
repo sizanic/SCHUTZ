@@ -66,11 +66,11 @@
         android:id="@+id/textD"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="72dp"
         android:background="#4472C4"
-        android:text="D"
         android:gravity="center"
+        android:text="D"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textA"
@@ -80,11 +80,11 @@
         android:id="@+id/textE"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="32dp"
         android:background="#4472C4"
-        android:text="E"
         android:gravity="center"
+        android:text="E"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textB"
@@ -94,11 +94,11 @@
         android:id="@+id/textF"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="32dp"
         android:background="#4472C4"
-        android:text="F"
         android:gravity="center"
+        android:text="F"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textC"
@@ -108,11 +108,11 @@
         android:id="@+id/textG"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="72dp"
         android:background="#4472C4"
-        android:text="G"
         android:gravity="center"
+        android:text="G"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textD"
@@ -122,11 +122,11 @@
         android:id="@+id/textH"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="32dp"
         android:background="#4472C4"
-        android:text="H"
         android:gravity="center"
+        android:text="H"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textE"
@@ -136,11 +136,11 @@
         android:id="@+id/textI"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="32dp"
         android:background="#4472C4"
-        android:text="I"
         android:gravity="center"
+        android:text="I"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textF"
@@ -148,7 +148,7 @@
 
     <TextView
         android:id="@+id/editA"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -160,7 +160,7 @@
 
     <TextView
         android:id="@+id/editB"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -172,7 +172,7 @@
 
     <TextView
         android:id="@+id/editC"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -184,7 +184,7 @@
 
     <TextView
         android:id="@+id/editD"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -196,7 +196,7 @@
 
     <TextView
         android:id="@+id/editE"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -208,7 +208,7 @@
 
     <TextView
         android:id="@+id/editF"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -220,7 +220,7 @@
 
     <TextView
         android:id="@+id/editG"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -232,7 +232,7 @@
 
     <TextView
         android:id="@+id/editH"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
@@ -244,7 +244,7 @@
 
     <TextView
         android:id="@+id/editI"
-        android:layout_width="70dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
         android:ems="10"
