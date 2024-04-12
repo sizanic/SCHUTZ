@@ -1,15 +1,22 @@
 package com.schutz.stock.ui.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
 import com.schutz.stock.R
 import com.schutz.stock.databinding.FragmentHomeBinding
 import com.schutz.stock.service.DatabaseClient
-import kotlin.concurrent.thread
+
 
 class HomeFragment : Fragment() {
 
@@ -46,6 +53,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initValues() {
+
+        var totalOccuped = 0
+        var totalEmpl = 0
+
         //thread(start = true)
             val allees = mapOf("A" to R.id.editA, "B" to R.id.editB , "C" to R.id.editC
                 , "D" to R.id.editD , "E" to R.id.editE , "F" to R.id.editF
@@ -55,7 +66,35 @@ class HomeFragment : Fragment() {
                 val nbRef = DatabaseClient.getInstance().getNbReference(it.key)
                 val editText = view?.findViewById<TextView>(it.value)
                 editText?.text = "%d / %d".format(nbEmpl-nbRef, nbEmpl)
+
+                totalEmpl += nbEmpl
+                totalOccuped += nbRef
             }
+        val pieChart = view?.findViewById<PieChart>(R.id.pieChart)
+
+        pieChart?.legend?.isEnabled = false
+
+        val percent = 100f*totalOccuped / totalEmpl
+        val noOfEmp = ArrayList<PieEntry>()
+        noOfEmp.add(PieEntry(100f - percent, "%2.0f".format(100f - percent)))
+        noOfEmp.add(PieEntry(percent, "%2.0f".format(percent)))
+        val dataSet = PieDataSet(noOfEmp, "STOCKAGE")
+
+        val colors = ArrayList<Int>()
+        colors.add(4278235216.toInt()) // FF00BO50
+        colors.add(Color.RED)
+        dataSet.setColors(colors)
+
+        val data = PieData(dataSet)
+        data.setDrawValues(false)
+        data.setValueFormatter(PercentFormatter(pieChart))
+        data.setValueTextSize(48f)
+        data.setValueTextColor(Color.BLACK)
+        pieChart?.centerText = "STOCKAGE RESTANT\r\n%2.0f %%".format(percent)
+        pieChart?.setData(data)
+        pieChart?.invalidate()
+        pieChart?.animateY(1300, Easing.EaseInOutQuad)
+
     }
 
 

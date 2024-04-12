@@ -60,14 +60,19 @@ public class DatabaseClient {
                         , new Allee("G"), new Allee("H"), new Allee("I"));
 //        appDatabase.alleeDao().insertAllAllees(allees);
 
+                //  l’allée ‘I’ on commence par 104 jusqu’à 111, de 704 jusqu’à 711
+
                 // Ajouter les emplacements
                 for(Allee allee : allees) {
                     appDatabase.alleeDao().insertAllee(allee);
-                    for (int numEmplacement=1; numEmplacement<83; numEmplacement++) {
+                    for (int numEmplacement=100; numEmplacement<=700; numEmplacement+=100) {
                         String alleeId = allee.getId();
-                        if (alleeId.equals("I") && numEmplacement==57) break;
-                        Emplacement empl = new Emplacement(alleeId, numEmplacement);
-                        appDatabase.emplacementDao().insertEmplacement(empl);
+                        int i=0;
+                        if (alleeId.equals("I")) i = 4;
+                        for (; i<=11; i++) {
+                            Emplacement empl = new Emplacement(alleeId, numEmplacement+i);
+                            appDatabase.emplacementDao().insertEmplacement(empl);
+                        }
                     }
                 }
             }

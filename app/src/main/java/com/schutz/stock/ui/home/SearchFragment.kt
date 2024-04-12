@@ -1,15 +1,22 @@
 package com.schutz.stock.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Date
+import java.util.GregorianCalendar
 
 /**
  * A simple [Fragment] subclass.
@@ -31,6 +38,10 @@ class SearchFragment : Fragment() {
 
         val btnAdd = view?.findViewById<Button>(R.id.btnAdd)
         btnAdd?.setOnClickListener(View.OnClickListener {
+            // close keyboard
+            val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+
             searchReference()
         })
 
@@ -45,9 +56,12 @@ class SearchFragment : Fragment() {
         val reference = DatabaseClient.getInstance().searchReference(textRef?.text.toString())
 
         if (reference != null) {
+
+            val date = Date(reference.date)
+            val sdf = SimpleDateFormat("dd/MM/yyyy")
             textAllee?.text = reference.alleeId
             textEmpl?.text = reference.emplacementId.toString()
-            textDate?.text = reference.date.toString()
+            textDate?.text = sdf.format(date)
         }
         else {
             textAllee?.text = " / "

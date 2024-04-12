@@ -59,4 +59,6 @@ dependencies {
     annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)//KTX Extensions/Coroutines for Room
     ksp(libs.androidx.room.compiler)
+
+    implementation(libs.mpandroidchart) // Piechart
 }

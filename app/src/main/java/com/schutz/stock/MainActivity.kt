@@ -10,6 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.schutz.stock.R
 import com.schutz.stock.databinding.ActivityMainBinding
 import com.schutz.stock.service.DatabaseClient
+import java.util.Locale
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Locale.setDefault(Locale.FRANCE)
 
         databaseClient = DatabaseClient.initInstance(baseContext)
 

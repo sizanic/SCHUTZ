@@ -6,75 +6,18 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/textAllee"
-        android:layout_width="207dp"
+    <EditText
+        android:id="@+id/editTextReference"
+        android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="40dp"
-        android:background="#4472C4"
-        android:gravity="center"
-        android:text="RAYONNAGE"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
-
-    <TextView
-        android:id="@+id/textEmplacement"
-        android:layout_width="207dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:background="#4472C4"
-        android:text="EMPLACEMENT"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAllee" />
-
-    <TextView
-        android:id="@+id/textReference"
-        android:layout_width="207dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:background="#4472C4"
-        android:text="RÉFÉRENCE"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmplacement" />
-
-    <TextView
-        android:id="@+id/textDate"
-        android:layout_width="207dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:background="#4472C4"
-        android:text="DATE"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textReference" />
-
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="RANGER UN COMPOSANT"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        android:hint="000"
+        app:layout_constraintStart_toEndOf="@+id/textReference"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacement" />
 
     <Spinner
         android:id="@+id/spinnerAllee"
@@ -90,43 +33,94 @@
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toEndOf="@+id/textEmplacement"
         app:layout_constraintTop_toBottomOf="@+id/spinnerAllee" />
 
-    <EditText
-        android:id="@+id/editTextReference"
-        android:layout_width="213dp"
+    <TextView
+        android:id="@+id/textReference"
+        android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@+id/textReference"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacement" />
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
+        android:background="#4472C4"
+        android:gravity="center"
+        android:text="RÉFÉRENCE"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmplacement" />
 
+    <TextView
+        android:id="@+id/textEmplacement"
+        android:layout_width="207dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
+        android:background="#4472C4"
+        android:gravity="center"
+        android:text="EMPLACEMENT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAllee" />
+
+    <TextView
+        android:id="@+id/textAllee"
+        android:layout_width="207dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
+        android:background="#4472C4"
+        android:gravity="center"
+        android:text="RAYONNAGE"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="RANGER UN COMPOSANT"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
+-->
+
+    <DatePicker
+        android:id="@+id/editTextDate"
+        android:layout_width="550dp"
+        android:layout_height="550dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="92dp"
+        android:calendarViewShown="true"
+        android:datePickerMode="calendar"
         android:ems="10"
         android:hint="date"
         android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/textDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReference" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="213dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="22dp"
+        android:layout_width="447dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="108dp"
         android:backgroundTint="#4472C4"
-        android:textSize="20sp"
         android:text="RANGER"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
