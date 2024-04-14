@@ -5,6 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey"
+        android:text="RANGER UN COMPOSANT"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center|center_horizontal"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingVertical="-16dp"
+        android:text="+"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="@color/schutz"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextReference"
@@ -24,9 +55,8 @@
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toEndOf="@+id/textAllee"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintBottom_toBottomOf="@+id/textAllee"
+        app:layout_constraintStart_toEndOf="@+id/textAllee" />
 
     <Spinner
         android:id="@+id/spinnerEmplacement"
@@ -70,7 +100,7 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="RAYONNAGE"
@@ -79,31 +109,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="RANGER UN COMPOSANT"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!--
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="213dp"
-        android:layout_height="50dp"
--->
-
     <DatePicker
         android:id="@+id/editTextDate"
-        android:layout_width="550dp"
-        android:layout_height="550dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="92dp"
+        android:layout_width="500dp"
+        android:layout_height="420dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="156dp"
         android:calendarViewShown="true"
         android:datePickerMode="calendar"
         android:ems="10"
@@ -114,13 +126,14 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="447dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="108dp"
+        android:layout_width="472dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#4472C4"
         android:text="RANGER"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textReference" />
 </androidx.constraintlayout.widget.ConstraintLayout>

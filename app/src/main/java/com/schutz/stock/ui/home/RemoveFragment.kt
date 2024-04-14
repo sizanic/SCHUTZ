@@ -25,10 +25,6 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     private var emplacementSpinner: Spinner? = null
     private var alleeSpinner: Spinner? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -113,31 +109,17 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
 
     private fun removeReference() {
-/*
-        val allee = view?.findViewById<Spinner>(R.id.spinnerAllee)
-        val alleeID = allee?.selectedItem.toString()
-        val emplacement = view?.findViewById<Spinner>(R.id.spinnerEmplacement)
-        val emplacementID = emplacement?.selectedItem.toString().toInt()
-        val reference = view?.findViewById<EditText>(R.id.editTextReference)
-        val referenceId = reference?.text.toString()
-        val date = view?.findViewById<EditText>(R.id.editTextDate)
-        val dateId = date?.text
-
-        val currentTimestamp = System.currentTimeMillis()
-*/
         val ref = selectedReference ?: return
-
         val isDeleted = DatabaseClient.getInstance().removeReference(ref)
-
         if (isDeleted) {
             referenceText?.setText("")
             Toast.makeText(context , "Allée %s, l'emplacement %d est libéré".format(ref.alleeId, ref.emplacementId), Toast.LENGTH_SHORT).show()
             initEmplacement(ref.alleeId)
             selectedReference = null
         }
-        else
+        else {
             Toast.makeText(context , "Allée %s, impossible de libérer l'emplacement %d".format(ref.alleeId, ref.emplacementId), Toast.LENGTH_SHORT).show()
-
+        }
     }
 
 }

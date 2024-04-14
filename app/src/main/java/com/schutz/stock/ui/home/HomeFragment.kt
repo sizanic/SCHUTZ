@@ -1,11 +1,15 @@
 package com.schutz.stock.ui.home
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -26,6 +30,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,12 +39,7 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view: View = binding.root
-
-/*
-        val nbA = view.findViewById<TextView>(R.id.editA)
-        nbA.text = "56"
-*/
-      return view
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,17 +83,18 @@ class HomeFragment : Fragment() {
         val colors = ArrayList<Int>()
         colors.add(4278235216.toInt()) // FF00BO50
         colors.add(Color.RED)
-        dataSet.setColors(colors)
+        dataSet.colors = colors
 
         val data = PieData(dataSet)
         data.setDrawValues(false)
         data.setValueFormatter(PercentFormatter(pieChart))
-        data.setValueTextSize(48f)
+//        data.setValueTextSize(48f)
         data.setValueTextColor(Color.BLACK)
         pieChart?.centerText = "STOCKAGE RESTANT\r\n%2.0f %%".format(percent)
+        pieChart?.description = null
         pieChart?.setData(data)
         pieChart?.invalidate()
-        pieChart?.animateY(1300, Easing.EaseInOutQuad)
+        pieChart?.animateY(1200, Easing.EaseInOutQuad)
 
     }
 

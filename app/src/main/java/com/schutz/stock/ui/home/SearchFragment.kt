@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
@@ -53,7 +54,8 @@ class SearchFragment : Fragment() {
         val textEmpl = view?.findViewById<TextView>(R.id.editTextEmplacement)
         val textDate = view?.findViewById<TextView>(R.id.editTextDate)
         val textRef = view?.findViewById<EditText>(R.id.editTextReference)
-        val reference = DatabaseClient.getInstance().searchReference(textRef?.text.toString())
+        val searchRef = textRef?.text
+        val reference = DatabaseClient.getInstance().searchReference(searchRef.toString())
 
         if (reference != null) {
 
@@ -67,6 +69,7 @@ class SearchFragment : Fragment() {
             textAllee?.text = " / "
             textEmpl?.text = " / "
             textDate?.text = " / "
+            Toast.makeText(context , "Aucun emplacement trouvé pour la référence : $searchRef", Toast.LENGTH_SHORT).show()
         }
     }
 }

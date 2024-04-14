@@ -5,57 +5,77 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey"
+        android:text="    RECHERCHER UNE REFERENCE"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_search_blue" />
+
+    <TextView
         android:id="@+id/textAllee"
         android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="RAYONNAGE"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintTop_toBottomOf="@+id/textReference" />
 
     <TextView
         android:id="@+id/editTextAllee"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="52dp"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textAllee"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintBottom_toBottomOf="@+id/textAllee"
+        app:layout_constraintStart_toEndOf="@+id/textAllee" />
 
     <TextView
         android:id="@+id/editTextEmplacement"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="52dp"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textEmplacement"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAllee" />
+        app:layout_constraintBottom_toBottomOf="@+id/textEmplacement"
+        app:layout_constraintStart_toEndOf="@+id/textEmplacement" />
 
     <TextView
         android:id="@+id/editTextDate"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="52dp"
         android:ems="10"
         android:inputType="datetime|date"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmplacement" />
+        app:layout_constraintBottom_toBottomOf="@+id/textDate"
+        app:layout_constraintStart_toEndOf="@+id/textDate" />
 
     <TextView
         android:id="@+id/textDate"
         android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="DATE"
@@ -68,21 +88,21 @@
         android:id="@+id/textReference"
         android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="48dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="RÉFÉRENCE"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
     <EditText
         android:id="@+id/editTextReference"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="52dp"
         android:ems="10"
         android:inputType="number"
         android:text=""
@@ -93,8 +113,8 @@
         android:id="@+id/textEmplacement"
         android:layout_width="207dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="EMPLACEMENT"
@@ -105,25 +125,15 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="213dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="474dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="47dp"
         android:backgroundTint="#4472C4"
         android:text="RECHERCHER"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/editTextReference"
-        app:layout_constraintTop_toTopOf="@+id/editTextReference" />
-
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="RECHERCHER UNE REFERENCE"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

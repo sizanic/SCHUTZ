@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="VIDER UN EMPLACEMENT"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center|center_horizontal"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingVertical="-16dp"
+        android:text="-"
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="@color/schutz"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <Button
         android:id="@+id/btnRemove"
-        android:layout_width="213dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="343dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="472dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#4472C4"
         android:text="VIDER"
         android:textSize="20sp"
@@ -22,7 +55,7 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="RÉFÉRENCE"
@@ -36,10 +69,10 @@
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
         android:text="- - -"
         android:textSize="24sp"
-        android:gravity="center"
         app:layout_constraintStart_toEndOf="@+id/textReference"
         app:layout_constraintTop_toBottomOf="@+id/spinnerEmplacementDel" />
 
@@ -48,7 +81,7 @@
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="RAYONNAGE"
@@ -62,16 +95,15 @@
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toEndOf="@+id/textAllee"
-        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+        app:layout_constraintBottom_toBottomOf="@+id/textAllee"
+        app:layout_constraintStart_toEndOf="@+id/textAllee" />
 
     <TextView
         android:id="@+id/textEmplacement"
         android:layout_width="207dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         android:background="#4472C4"
         android:gravity="center"
         android:text="EMPLACEMENT"
@@ -85,19 +117,8 @@
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toEndOf="@+id/textEmplacement"
         app:layout_constraintTop_toBottomOf="@+id/spinnerAlleeDel" />
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="VIDER UN EMPLACEMENT"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

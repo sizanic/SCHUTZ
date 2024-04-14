@@ -1,5 +1,6 @@
 package com.schutz.stock.ui.home
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -112,15 +113,16 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val reference = view?.findViewById<EditText>(R.id.editTextReference)
         val referenceId = reference?.text.toString()
         val date = view?.findViewById<DatePicker>(R.id.editTextDate)
-//        val dateId = date?.get
-
         val calendar: Calendar = GregorianCalendar(date?.year!!, date.month, date.dayOfMonth)
         val selectedTimestamp = calendar.getTimeInMillis()
 
-//        val currentTimestamp = System.currentTimeMillis()
+        if (referenceId.isBlank())
+        {
+            showAlert(context, "ATTENTION", "Merci de renseigner une référence valide.")
+            return
+        }
 
         val newReference = DatabaseClient.getInstance().addReference(alleeID, emplacementID, referenceId, selectedTimestamp)
-
         if (newReference != null)
             Toast.makeText(context , "Référence $referenceId ajouté dans l'allée $alleeID, emplacement $emplacementID", Toast.LENGTH_SHORT).show()
         else
@@ -128,5 +130,17 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
+    private fun showAlert(context: Context?, title: String, message: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setIcon(R.drawable.texte_schutz)
+        builder.setTitle(title)
+        builder.setMessage(message)
+        builder.setPositiveButton("OK") { dialog, which ->
+            // Action à effectuer lorsque l'utilisateur clique sur le bouton "OK"
+            dialog.dismiss() // Fermer la boîte de dialogue
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
 
 }
