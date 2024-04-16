@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.schutz.stock.R
 import com.schutz.stock.databinding.ActivityMainBinding
 import com.schutz.stock.service.DatabaseClient
 import java.util.Locale

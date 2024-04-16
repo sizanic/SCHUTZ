@@ -1,15 +1,11 @@
 package com.schutz.stock.ui.home
 
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -94,7 +90,7 @@ class HomeFragment : Fragment() {
         pieChart?.description = null
         pieChart?.setData(data)
         pieChart?.invalidate()
-        pieChart?.animateY(1200, Easing.EaseInOutQuad)
+        pieChart?.animateY(800, Easing.EaseInOutQuad)
 
     }
 

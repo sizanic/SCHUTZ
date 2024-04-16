@@ -15,7 +15,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
 import java.util.Calendar
@@ -31,10 +30,6 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private var spinnerEmplacement: Spinner? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +43,7 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinnerEmplacement = view?.findViewById<Spinner>(R.id.spinnerEmplacement)
 
         val btnAdd = view?.findViewById<Button>(R.id.btnAdd)
-        btnAdd?.setOnClickListener(View.OnClickListener {
+        btnAdd?.setOnClickListener({
             // close keyboard
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
@@ -75,7 +70,7 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
             values.add(it.id)
         }
         val spinnerAllee = view?.findViewById<Spinner>(R.id.spinnerAllee)
-        spinnerAllee?.adapter = ArrayAdapter<String>(requireView().context, android.R.layout.simple_list_item_1, values)
+        spinnerAllee?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
 
     }
 
@@ -89,7 +84,7 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
             R.id.spinnerAllee -> {
                 val emplacements = DatabaseClient.getInstance().getEmplacementsLibres(selectedItem)
                 val values = ArrayList<Int>()
-                emplacements.forEach() {
+                emplacements.forEach {
                     values.add(it.id)
                 }
                 spinnerEmplacement?.adapter = ArrayAdapter<Int>(requireView().context, android.R.layout.simple_list_item_1, values)

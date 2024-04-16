@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -53,11 +52,11 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         selectedReference = null
         val values = ArrayList<String>()
         val allees = DatabaseClient.getInstance().allees
-        allees.forEach() {
+        allees.forEach {
             values.add(it.id)
         }
         val spinnerAllee = view.findViewById<Spinner>(R.id.spinnerAlleeDel)
-        spinnerAllee?.adapter = ArrayAdapter<String>(requireView().context, android.R.layout.simple_list_item_1, values)
+        spinnerAllee?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
     }
 
     fun initEmplacement(alleeId: String) {
@@ -65,10 +64,10 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         val values = ArrayList<String>()
         values.add(" ")
 
-        emplacements.forEach() {
+        emplacements.forEach {
             values.add(it.id.toString())
         }
-        emplacementSpinner?.adapter = ArrayAdapter<String>(requireView().context, android.R.layout.simple_list_item_1, values)
+        emplacementSpinner?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
         emplacementSpinner?.setSelection(0)
     }
 
@@ -79,13 +78,13 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         when (parent.id) {
             R.id.spinnerAlleeDel -> {
                 selectedReference = null
-                referenceText?.setText("")
+                referenceText?.text = ""
                 initEmplacement(selectedItem)
             }
 
             R.id.spinnerEmplacementDel -> {
                 if (selectedItem.isBlank()) {
-                    referenceText?.setText("")
+                    referenceText?.text = ""
                     selectedReference = null
                     return
                 }
@@ -95,9 +94,9 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
                 selectedReference = DatabaseClient.getInstance().getReference(alleeID, emplacementID)
                 val ref = selectedReference
                 if (ref != null)
-                    referenceText?.setText(ref.id)
+                    referenceText?.text = ref.id
                 else
-                    referenceText?.setText("")
+                    referenceText?.text = ""
             }
         }
 
@@ -112,7 +111,7 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         val ref = selectedReference ?: return
         val isDeleted = DatabaseClient.getInstance().removeReference(ref)
         if (isDeleted) {
-            referenceText?.setText("")
+            referenceText?.text = ""
             Toast.makeText(context , "Allée %s, l'emplacement %d est libéré".format(ref.alleeId, ref.emplacementId), Toast.LENGTH_SHORT).show()
             initEmplacement(ref.alleeId)
             selectedReference = null

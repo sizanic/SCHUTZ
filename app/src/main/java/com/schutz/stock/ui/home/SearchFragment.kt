@@ -14,10 +14,7 @@ import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.Date
-import java.util.GregorianCalendar
 
 /**
  * A simple [Fragment] subclass.
@@ -25,10 +22,6 @@ import java.util.GregorianCalendar
  * create an instance of this fragment.
  */
 class SearchFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +31,7 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         val btnAdd = view?.findViewById<Button>(R.id.btnAdd)
-        btnAdd?.setOnClickListener(View.OnClickListener {
+        btnAdd?.setOnClickListener({
             // close keyboard
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
@@ -58,7 +51,6 @@ class SearchFragment : Fragment() {
         val reference = DatabaseClient.getInstance().searchReference(searchRef.toString())
 
         if (reference != null) {
-
             val date = Date(reference.date)
             val sdf = SimpleDateFormat("dd/MM/yyyy")
             textAllee?.text = reference.alleeId
