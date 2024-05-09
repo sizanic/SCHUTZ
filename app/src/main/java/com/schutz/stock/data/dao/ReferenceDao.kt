@@ -16,7 +16,7 @@ interface ReferenceDao {
     @Delete
     fun removeReference(reference: Reference)
 
-    @Query("SELECT * FROM reference where id = :refId limit 1")
+    @Query("SELECT * FROM reference where id = :refId order by date limit 1")
     fun searchReference(refId: String): Reference
 
     @Query("SELECT * FROM reference where alleeId = :alleeId  and emplacementId = :emplacementId limit 1")

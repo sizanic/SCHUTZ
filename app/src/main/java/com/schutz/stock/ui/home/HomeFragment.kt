@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.schutz.stock.MainActivity
 import com.schutz.stock.R
 import com.schutz.stock.databinding.FragmentHomeBinding
 import com.schutz.stock.service.DatabaseClient
@@ -49,9 +52,24 @@ class HomeFragment : Fragment() {
     }
 
     private fun initValues() {
-
         var totalOccuped = 0
         var totalEmpl = 0
+
+        val navController = view?.findNavController()
+        val alleesTxt = mapOf(R.id.textA to 0, R.id.textB to 1, R.id.textC to 2
+            , R.id.textD to 3, R.id.textE to 4, R.id.textF to 5
+            , R.id.textG to 6, R.id.textH to 7, R.id.textI to 8)
+        alleesTxt.forEach{
+            val alleeText = view?.findViewById<TextView>(it.key)
+            val value = it.value
+            alleeText?.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putInt("Allee", value)
+                parentFragment?.arguments = bundle
+                navController?.navigate(R.id.navigation_add)
+            }
+        }
+
 
         //thread(start = true)
             val allees = mapOf("A" to R.id.editA, "B" to R.id.editB , "C" to R.id.editC
@@ -86,7 +104,7 @@ class HomeFragment : Fragment() {
         data.setValueFormatter(PercentFormatter(pieChart))
 //        data.setValueTextSize(48f)
         data.setValueTextColor(Color.BLACK)
-        pieChart?.centerText = "STOCKAGE RESTANT\r\n%2.0f %%".format(percent)
+        pieChart?.centerText = "STOCKAGE RESTANT\r\n%2.0f %%".format(100f - percent)
         pieChart?.description = null
         pieChart?.setData(data)
         pieChart?.invalidate()

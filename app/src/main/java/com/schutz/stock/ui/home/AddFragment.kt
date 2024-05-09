@@ -57,10 +57,11 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initValues()
-/*
-        thread(start = true) {
-        }
-*/
+
+        /*
+                thread(start = true) {
+                }
+        */
     }
 
     private fun initValues() {
@@ -71,6 +72,13 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
         val spinnerAllee = view?.findViewById<Spinner>(R.id.spinnerAllee)
         spinnerAllee?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
+
+        val bundle = parentFragment?.arguments
+        if (bundle != null) {
+            val allee = bundle.getInt("Allee")
+            spinnerAllee?.setSelection(allee)
+            parentFragment?.arguments = null // l'argument est consommé
+        }
 
     }
 
