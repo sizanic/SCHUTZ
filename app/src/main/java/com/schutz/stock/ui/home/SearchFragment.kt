@@ -31,13 +31,13 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         val btnAdd = view?.findViewById<Button>(R.id.btnAdd)
-        btnAdd?.setOnClickListener({
+        btnAdd?.setOnClickListener {
             // close keyboard
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
 
             searchReference()
-        })
+        }
 
         return view
     }
@@ -56,6 +56,12 @@ class SearchFragment : Fragment() {
             textAllee?.text = reference.alleeId
             textEmpl?.text = reference.emplacementId.toString()
             textDate?.text = sdf.format(date)
+
+            // preparer la suppression
+            val bundle = Bundle()
+            bundle.putString("Allee", reference.alleeId)
+            bundle.putString("Emplacement", reference.emplacementId.toString())
+            parentFragment?.arguments = bundle
         }
         else {
             textAllee?.text = " / "

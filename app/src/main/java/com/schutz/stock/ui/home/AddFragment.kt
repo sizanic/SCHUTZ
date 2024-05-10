@@ -75,7 +75,7 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         val bundle = parentFragment?.arguments
         if (bundle != null) {
-            val allee = bundle.getInt("Allee")
+            val allee = bundle.getInt("AlleeId")
             spinnerAllee?.setSelection(allee)
             parentFragment?.arguments = null // l'argument est consommé
         }

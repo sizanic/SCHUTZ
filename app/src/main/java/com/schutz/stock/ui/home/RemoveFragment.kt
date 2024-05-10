@@ -57,9 +57,20 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         }
         val spinnerAllee = view.findViewById<Spinner>(R.id.spinnerAlleeDel)
         spinnerAllee?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
+        val spinnerAdapter = spinnerAllee?.adapter
+        val bundle = parentFragment?.arguments
+        if (bundle != null) {
+            val allee = bundle.getString("Allee")
+            val emplacement = bundle.getString("Emplacement")
+            val position = (0 until spinnerAdapter!!.count).firstOrNull { spinnerAdapter.getItem(it) == allee }
+            if (position != null) {
+                spinnerAllee.setSelection(position)
+            }
+//            parentFragment?.arguments = null // l'argument est consommé
+        }
     }
 
-    fun initEmplacement(alleeId: String) {
+    private fun initEmplacement(alleeId: String) {
         val emplacements = DatabaseClient.getInstance().getEmplacementsOccupes(alleeId)
         val values = ArrayList<String>()
         values.add(" ")
@@ -68,7 +79,19 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
             values.add(it.id.toString())
         }
         emplacementSpinner?.adapter = ArrayAdapter(requireView().context, android.R.layout.simple_list_item_1, values)
-        emplacementSpinner?.setSelection(0)
+        val spinnerAdapter = emplacementSpinner?.adapter
+        val bundle = parentFragment?.arguments
+        if (bundle != null) {
+            val emplacement = bundle.getString("Emplacement")
+            val position =
+                (0 until spinnerAdapter!!.count).firstOrNull { spinnerAdapter.getItem(it) == emplacement }
+            if (position != null) {
+                emplacementSpinner?.setSelection(position)
+            }
+            parentFragment?.arguments = null // l'argument est consommé
+        }
+        else
+            emplacementSpinner?.setSelection(0)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
             val value = it.value
             alleeText?.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putInt("Allee", value)
+                bundle.putInt("AlleeId", value)
                 parentFragment?.arguments = bundle
                 navController?.navigate(R.id.navigation_add)
             }
