@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.data.entity.Reference
@@ -23,6 +24,11 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     private var referenceText: TextView? = null
     private var emplacementSpinner: Spinner? = null
     private var alleeSpinner: Spinner? = null
+    private var removeText: TextView? = null
+    private var btnRemove: Button? = null
+    private var btnRemoveConfirm: Button? = null
+    private var btnRemoveCancel: Button? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +45,27 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         emplacementSpinner?.onItemSelectedListener = this
 
 
-        val btnAdd = view.findViewById<Button>(R.id.btnRemove)
-        btnAdd?.setOnClickListener {
+        removeText = view.findViewById<TextView>(R.id.textRemove)
+        btnRemove = view.findViewById<Button>(R.id.btnRemove)
+        btnRemoveConfirm = view.findViewById<Button>(R.id.btnRemoveValid)
+        btnRemoveCancel = view.findViewById<Button>(R.id.btnRemoveCancel)
+        btnRemove?.setOnClickListener {
+            btnRemoveConfirm?.visibility = View.VISIBLE
+            btnRemoveCancel?.visibility = View.VISIBLE
+            removeText?.visibility = View.VISIBLE
+        }
+
+        btnRemoveCancel?.setOnClickListener {
+            btnRemoveConfirm?.visibility = View.INVISIBLE
+            btnRemoveCancel?.visibility = View.INVISIBLE
+            removeText?.visibility = View.INVISIBLE
+        }
+
+        btnRemoveConfirm?.setOnClickListener {
             removeReference()
+            btnRemoveConfirm?.visibility = View.INVISIBLE
+            btnRemoveCancel?.visibility = View.INVISIBLE
+            removeText?.visibility = View.INVISIBLE
         }
 
         return view
@@ -49,6 +73,8 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.windowInsetsController?.hide(WindowInsetsCompat.Type.systemBars())
+
         selectedReference = null
         val values = ArrayList<String>()
         val allees = DatabaseClient.getInstance().allees
@@ -102,12 +128,14 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
             R.id.spinnerAlleeDel -> {
                 selectedReference = null
                 referenceText?.text = ""
+                btnRemove?.isEnabled  = false
                 initEmplacement(selectedItem)
             }
 
             R.id.spinnerEmplacementDel -> {
                 if (selectedItem.isBlank()) {
                     referenceText?.text = ""
+                    btnRemove?.isEnabled  = false
                     selectedReference = null
                     return
                 }
@@ -116,10 +144,14 @@ class RemoveFragment : Fragment(), AdapterView.OnItemSelectedListener  {
                 val emplacementID = emplacementSpinner?.selectedItem.toString().toInt()
                 selectedReference = DatabaseClient.getInstance().getReference(alleeID, emplacementID)
                 val ref = selectedReference
-                if (ref != null)
+                if (ref != null) {
                     referenceText?.text = ref.id
-                else
+                    btnRemove?.isEnabled  = true
+                }
+                else {
                     referenceText?.text = ""
+                    btnRemove?.isEnabled  = false
+                }
             }
         }
 

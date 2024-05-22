@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@color/grey"
-        android:text="PLACES DISPONIBLES"
+        android:text="    PLACES DISPONIBLES"
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -276,10 +276,10 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="460dp"
-        android:layout_height="460dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="132dp"
+        android:layout_width="430dp"
+        android:layout_height="430dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -14,6 +14,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import java.io.File;
 
 public class DatabaseClient {
 
@@ -24,9 +27,22 @@ public class DatabaseClient {
 
     private DatabaseClient(Context mCtx) {
 
+        File externalDir = mCtx.getExternalFilesDir(null); // Obtenez le répertoire de stockage externe de l'application
+        File databaseDir = new File(externalDir, "SCHUTZ-data"); // Créez un sous-répertoire pour la base de données
+
+// Assurez-vous que le répertoire des bases de données existe
+        if (!databaseDir.exists()) {
+            databaseDir.mkdirs();
+        }
+
+        String databasePath = new File(databaseDir, "stock.db").getAbsolutePath();
+
+// Utilisez databasePath lors de la création de la base de données ou de la configuration de sa connexion
+//        SQLiteDatabase database = SQLiteDatabase.openDatabase(databasePath, null, SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.CREATE_IF_NECESSARY);
+
         //creating the app database with Room database builder
         //MyToDos is the name of the database
-        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "stock3").allowMainThreadQueries().build();
+        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, databasePath ).allowMainThreadQueries().build();
 
         appDatabase.getOpenHelper().getWritableDatabase(); //<<<<< FORCE OPEN
 

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
@@ -40,6 +41,11 @@ class SearchFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.windowInsetsController?.hide(WindowInsetsCompat.Type.systemBars())
     }
 
     private fun searchReference() {

@@ -14,6 +14,7 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.schutz.stock.R
 import com.schutz.stock.service.DatabaseClient
@@ -56,6 +57,7 @@ class AddFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.windowInsetsController?.hide(WindowInsetsCompat.Type.systemBars())
         initValues()
 
         /*
