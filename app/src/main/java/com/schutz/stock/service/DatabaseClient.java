@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
+
 import java.io.File;
 
 public class DatabaseClient {
@@ -27,8 +29,10 @@ public class DatabaseClient {
 
     private DatabaseClient(Context mCtx) {
 
-        File externalDir = mCtx.getExternalFilesDir(null); // Obtenez le répertoire de stockage externe de l'application
-        File databaseDir = new File(externalDir, "SCHUTZ-data"); // Créez un sous-répertoire pour la base de données
+        File databaseDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath(), "SCHUTZ-data");
+
+//        File externalDir = mCtx.getExternalFilesDir(null); // Obtenez le répertoire de stockage externe de l'application
+//        File databaseDir = new File(externalDir, "SCHUTZ-data"); // Créez un sous-répertoire pour la base de données
 
 // Assurez-vous que le répertoire des bases de données existe
         if (!databaseDir.exists()) {
