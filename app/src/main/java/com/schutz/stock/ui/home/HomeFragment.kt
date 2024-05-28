@@ -74,18 +74,23 @@ class HomeFragment : Fragment() {
 
 
         //thread(start = true)
-            val allees = mapOf("A" to R.id.editA, "B" to R.id.editB , "C" to R.id.editC
-                , "D" to R.id.editD , "E" to R.id.editE , "F" to R.id.editF
-                , "G" to R.id.editG , "H" to R.id.editH , "I" to R.id.editI )
-            allees.forEach{
-                val nbEmpl = DatabaseClient.getInstance().getNbEmplacement(it.key)
-                val nbRef = DatabaseClient.getInstance().getNbReference(it.key)
-                val editText = view?.findViewById<TextView>(it.value)
-                editText?.text = "%d / %d".format(nbEmpl-nbRef, nbEmpl)
 
-                totalEmpl += nbEmpl
-                totalOccuped += nbRef
+            val dbClient = DatabaseClient.getInstance()
+            if (dbClient != null) {
+                val allees = mapOf("A" to R.id.editA, "B" to R.id.editB , "C" to R.id.editC
+                    , "D" to R.id.editD , "E" to R.id.editE , "F" to R.id.editF
+                    , "G" to R.id.editG , "H" to R.id.editH , "I" to R.id.editI )
+                allees.forEach{
+                    val nbEmpl = dbClient.getNbEmplacement(it.key)
+                    val nbRef = dbClient.getNbReference(it.key)
+                    val editText = view?.findViewById<TextView>(it.value)
+                    editText?.text = "%d / %d".format(nbEmpl-nbRef, nbEmpl)
+
+                    totalEmpl += nbEmpl
+                    totalOccuped += nbRef
+                }
             }
+
         val pieChart = view?.findViewById<PieChart>(R.id.pieChart)
 
         pieChart?.legend?.isEnabled = false
